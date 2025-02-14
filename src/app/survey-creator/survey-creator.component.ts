@@ -40,10 +40,34 @@ export class SurveyCreatorComponent implements OnInit {
 
     creator.saveSurveyFunc = (saveNo: number, callback: Function) => { 
       // If you use localStorage:
-      window.localStorage.setItem("survey-json", creator.text);
-      callback(saveNo, true);
+      saveSurveyJson(
+        "dantasuser.pythonanywhere.com",
+        creator.JSON,
+        saveNo,
+        callback
+      );
     }
     creator.text = window.localStorage.getItem("survey-json") || JSON.stringify(defaultJson);
   }
 }
 
+
+function saveSurveyJson(url: string | URL, json: object, saveNo: number, callback: Function) {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    body: JSON.stringify(json)
+  })
+  .then(response => {
+    if (response.ok) {
+      callback(saveNo, true);
+    } else {
+      callback(saveNo, false);
+    }
+  })
+  .catch(error => {
+    callback(saveNo, false);
+  });
+}

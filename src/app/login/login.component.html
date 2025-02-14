@@ -1,14 +1,14 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="card p-4 shadow-lg rounded custom-card">
-    <form>
+    <form [formGroup]="form" (submit)="onSubmitSignIn()">
       <h2 class="text-center mb-4 custom-color-text">Login</h2>
       <div class="form-group mb-3">
         <label for="email" class="form-label text-secondary">E-mail</label>
-        <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail">
+        <input type="email" id="email" class="form-control" formControlName='email' placeholder="Digite seu e-mail">
       </div>
       <div class="form-group mb-4">
         <label for="senha" class="form-label text-secondary">Senha</label>
-        <input type="password" id="senha" class="form-control" placeholder="Digite sua senha">
+        <input type="password" id="senha" class="form-control" formControlName='password' placeholder="Digite sua senha">
       </div>
       <div class="d-grid">
         <button class="btn btn-success custom-color btn-block fw-bold" type="submit" (click)="onSubmitSignIn()">Entrar</button>
