@@ -12,7 +12,7 @@ export class PreviewComponent {
   constructor(private router: Router) {}
 
   onSubmitSignIn() {
-    this.router.navigate(['login']);
+    this.router.navigate(['SignIn']);
   }
   onSubmitSignUp() {
     this.router.navigate(['SignUp']);

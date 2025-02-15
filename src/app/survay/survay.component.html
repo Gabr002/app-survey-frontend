@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+      <h2 class="text-center  corForAvaliation">Avaliação</h2>
+  
+      <form [formGroup]="surveyForm" (ngSubmit)="onSubmitSurvay()">
+        <div class="mb-3">
+          <label for="score" class="form-label">Nota (1 a 10):</label>
+          <select class="form-select" formControlName="score" required>
+            <option value="" disabled selected>Selecione uma nota</option>
+            <option *ngFor="let num of scores" [value]="num">{{ num }}</option>
+          </select>
+        </div>
+  
+        <div class="mb-3">
+          <label for="comment" class="form-label">Comentário:</label>
+          <textarea class="form-control" rows="3" formControlName="comment" placeholder="Como foi a aula?" required></textarea>
+        </div>
+  
+        <button class="btn corForEnviar w-100" type="submit" [disabled]="surveyForm.invalid">
+          Enviar Avaliação
+        </button>
+      </form>
+  
+      <div *ngIf="successMessage" class="alert alert-success mt-3 text-center">
+        {{ successMessage }}
+      </div>
+    </div>
+  </div>
+  

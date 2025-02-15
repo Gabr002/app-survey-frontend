@@ -1,0 +1,19 @@
+.container {
+  max-width: 500px;
+}
+.card {
+  border-radius: 15px;
+}
+button {
+  font-size: 18px;
+}
+
+.corForAvaliation{
+  color: #14A48B;
+}
+
+.corForEnviar {
+  background-color: #14A48B;
+  color: white;
+}
+  
